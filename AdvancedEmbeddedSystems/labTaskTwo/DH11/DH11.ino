@@ -34,7 +34,7 @@ void setup()
   String fv = WiFi.firmwareVersion();
   if (fv < WIFI_FIRMWARE_LATEST_VERSION) 
   {
-    Serial.println("Please upgrade the firmware");
+    Serial.println("Please upgrade to the latest firmware");
   }
 
   Serial.print("Creating access point named: ");
