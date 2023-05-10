@@ -4,6 +4,12 @@
 
   (paper "A4")
 
+  (title_block
+    (title "One Bit Adder")
+    (date "2023-05-10")
+    (rev "1")
+  )
+
   (lib_symbols
   )
 
