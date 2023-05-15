@@ -66,14 +66,74 @@ void enable_WiFi()
 
 void connect_WiFi()
 {
-  // attempt to connect WiFi
   while (status != WL_CONNECTED)
   {
     Serial.print("Attempting to connect to SSID: ");
     Serial.println(ssid);
 
-    //connect wifi
     status = WiFi.begin(ssid, pass);
     delay(10000);
+  }
+}
+
+void printWEB()
+{
+  if (client)
+  {
+    Serial.println("new client");
+    String currentLine = "";
+    while (client.connected())
+    {
+      if (client.available())
+      {
+        char c = client.read();
+        Serial.write(c);
+        if (c == '\n')
+        {
+          // end of client http request 
+          if (currentLine.length() == 0)
+          {
+            client.println("HTTP 1.1 200 OK");
+            client.println("content-type:text/html");
+            client.println();
+
+            //create button to turn LED ON and OFF
+            client.print("Click <a href=\"/H\">here<\a> to turn the LED on<br>");
+            client.print("Click <a href=\"/L\">here<\a> to turn the LED off<br><br>");
+            
+            int randomReading = analogRead(A1);
+            client.print("Random reading from analog pin: ");
+            client.print(randomReading);
+
+            //HTTP responds ends
+            client.println();
+
+            //break while loop
+            break;            
+          }
+          else
+          {
+            // clear newline
+            currentLine = "";
+          }
+        }
+        else if (c != '\r')
+        {
+          // if not a carriage return character
+          currentLine += c ;
+        }
+        if (currentLine.endsWith("GET /H"))
+        {
+          digitalWrite(LED_BUILTIN, HIGH);
+        }
+        if (currentLine.endsWith("GET /L"))
+        {
+          digitalWrite(LED_BUILTIN, LOW);
+        }
+      }
+    }
+    //close connection
+    client.stop();
+    Serial.println("client disconnected");
   }
 }
