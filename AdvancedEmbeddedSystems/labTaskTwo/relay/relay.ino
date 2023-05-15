@@ -98,8 +98,8 @@ void printWEB()
             client.println();
 
             //create button to turn LED ON and OFF
-            client.print("Click <a href=\"/H\">here<\a> to turn the LED on<br>");
-            client.print("Click <a href=\"/L\">here<\a> to turn the LED off<br><br>");
+            client.print("Click <a href=\"/H\">here<\a> to turn the Relay on<br>");
+            client.print("Click <a href=\"/L\">here<\a> to turn the Relay off<br><br>");
             
             int randomReading = analogRead(A1);
             client.print("Random reading from analog pin: ");
@@ -124,11 +124,11 @@ void printWEB()
         }
         if (currentLine.endsWith("GET /H"))
         {
-          digitalWrite(LED_BUILTIN, HIGH);
+          digitalWrite(relay, HIGH);
         }
         if (currentLine.endsWith("GET /L"))
         {
-          digitalWrite(LED_BUILTIN, LOW);
+          digitalWrite(relay, LOW);
         }
       }
     }
