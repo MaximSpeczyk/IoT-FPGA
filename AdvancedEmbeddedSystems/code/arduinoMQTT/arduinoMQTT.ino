@@ -1,11 +1,11 @@
-#include <ArdunioMqttClient.h>
+#include <ArduinoMqttClient.h>
 #include <WiFiNINA.h>
 #include "passwordMQTT.h"
 
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
 
-WiFiClient;
+WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
 const char broker[] = "192.168.0.105";
@@ -20,13 +20,13 @@ void setup()
     ;
   }
 
-  Serial.print("Connecting to SSID; ")
+  Serial.print("Connecting to SSID; ");
   Serial.println(ssid);
   
   while(WiFi.begin(ssid,pass) != WL_CONNECTED)
   {
     Serial.print(".");
-    delay(4000(;)
+    delay(4000);
   }
 
   Serial.println("Congrats, you are connected :)");
@@ -74,7 +74,7 @@ void onMqttMessage(int messageSize)
   {
     Serial.print((char)mqttClient.read());
   }
-  
+
   Serial.println();
   Serial.println();
 }
