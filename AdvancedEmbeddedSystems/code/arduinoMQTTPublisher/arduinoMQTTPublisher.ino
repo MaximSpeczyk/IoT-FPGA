@@ -3,6 +3,10 @@
 #include "passwordMQTT.h"
 #include <dht11.h> 
 
+#define DHT11PIN 13
+#define light 11
+#define humiditySoil 10
+
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
 
@@ -11,14 +15,22 @@ MqttClient mqttClient(wifiClient);
 
 const char broker[] = "192.168.0.105";
 int        port     = 1883;
-const char topic[]  = "MAXIM";
+const char DHT11[]  = "DHT11";
+const char lightChanel[]  = "light";
+const char humiditySoilChanel[]  = "Soil";
 
-const long interval = 8000;
+int lightValue;
+int soilHumdidity;
+
+dht11 DHT11; 
+
+const long interval = 5000;
 unsigned long previousMillis = 0;
 
 int count = 0;
 
-void setup() {
+void setup() 
+{
   Serial.begin(9600);
   while (!Serial) {
     ;
@@ -48,31 +60,64 @@ void setup() {
 
   Serial.println("You're connected to the MQTT broker!");
   Serial.println();
+
+  pinMode(relay, OUTPUT);
+  pinMode(light, INPUT);
+  pinMode(humiditySoil, INPUT);
+
 }
 
-void loop() {
+void loop() 
+{
+
+  int check = DHT11.read(DHT11PIN);
 
   mqttClient.poll();
 
   unsigned long currentMillis = millis();
 
-  if (currentMillis - previousMillis >= interval) {
+  if (currentMillis - previousMillis >= interval) 
+  {
 
     previousMillis = currentMillis;
 
+    int check = DHT11.read(DHT11PIN);
 
-    int Rvalue = analogRead(A0);
-    int Rvalue2 = analogRead(A1);
-    int Rvalue3 = analogRead(A2);
+    lightValue = digitalRead(light);
 
-    Serial.print("Sending message to topic: ");
-    Serial.println(topic);
-    Serial.println(Rvalue);
+    soilHumdidity = digitalRead(humiditySoil);
 
-    mqttClient.beginMessage(topic);
-    mqttClient.print(Rvalue);
+    Serial.print("Sending message to topic: DHT11");
+    Serial.println(DHT11);
+    Serial.println(DHT11.temperature);
+    Serial.println(DHT11.humdidity);
+
+    mqttClient.beginMessage(DHT11);
+    mqttClient.print("Humidity (%): ");
+    mqttClient.println((float)DHT11.humidity, 2);
+
+    mqttClient.print("Temperature (C): ");
+    mqttClient.println((float)DHT11.temperature, 2);
     mqttClient.endMessage();
 
+    Serial.print("Sending message to topic: lightChanel");
+    Serial.println(lightChanel);
+    Serial.println(lightValue);
+
+    mqttClient.beginMessage(lightChanel);
+    mqttClient.print("Light value: ");
+    mqttClient.println(lightValue);
+    mqttClient.endMessage();
+
+    Serial.print("Sending message to topic: humiditySoilChanel");
+    Serial.println(humiditySoilChanel);
+    Serial.println(humiditySoilChanel);
+
+    mqttClient.beginMessage(humiditySoilChanel);
+    mqttClient.print("Soil Humidity: ");
+    mqttClient.println(soilHumdidity);
+    mqttClient.endMessage();
+    
     Serial.println();
   }
 }
