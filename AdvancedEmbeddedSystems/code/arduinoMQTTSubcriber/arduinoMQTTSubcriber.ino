@@ -2,6 +2,8 @@
 #include <WiFiNINA.h>
 #include "passwordMQTT.h"
 
+#define relay 12
+
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
 
@@ -10,20 +12,24 @@ MqttClient mqttClient(wifiClient);
 
 const char broker[] = "192.168.0.105";
 int port = 1883;
-const char topic[] = "MAXIM";
+const char topic[] = "RELAY";
+
+char readCl;
 
 void setup()
 {
+  pinMode(relay, OUTPUT);
+
   Serial.begin(9600);
-  while(!Serial)
+  while (!Serial)
   {
     ;
   }
 
-  Serial.print("Connecting to SSID; ");
+  Serial.print("Connecting to SSID: ");
   Serial.println(ssid);
-  
-  while(WiFi.begin(ssid,pass) != WL_CONNECTED)
+
+  while (WiFi.begin(ssid, pass) != WL_CONNECTED)
   {
     Serial.print(".");
     delay(4000);
@@ -35,12 +41,13 @@ void setup()
   Serial.print("Attempting to connect to the MQTT broker: ");
   Serial.println(broker);
 
-  if (!mqttClient.connect(broker, port)) 
+  if (!mqttClient.connect(broker, port))
   {
     Serial.print("MQTT connection failed! Error code = ");
     Serial.println(mqttClient.connectError());
 
-    while(1);
+    while (1)
+      ;
   }
 
   Serial.println("You are connected to the MQTT broker :)");
@@ -62,7 +69,7 @@ void loop()
   mqttClient.poll();
 }
 
-void onMqttMessage(int messageSize) 
+void onMqttMessage(int messageSize)
 {
   Serial.println("Received a message with topic '");
   Serial.print(mqttClient.messageTopic());
@@ -70,9 +77,19 @@ void onMqttMessage(int messageSize)
   Serial.print(messageSize);
   Serial.println(" bytes:");
 
-  while (mqttClient.available()) 
+  while (mqttClient.available())
   {
-    Serial.print((char)mqttClient.read());
+    char receivedChar = (char)mqttClient.read();
+    Serial.print(receivedChar);
+
+    if (receivedChar == '1')
+    {
+      digitalWrite(relay, HIGH);
+    }
+    else if (receivedChar == '0')
+    {
+      digitalWrite(relay, LOW);
+    }
   }
 
   Serial.println();
