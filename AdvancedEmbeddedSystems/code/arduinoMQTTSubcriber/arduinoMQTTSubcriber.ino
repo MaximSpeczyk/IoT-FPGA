@@ -10,7 +10,7 @@ char pass[] = SECRET_PASS;
 WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
-const char broker[] = "raspberrypi.local";
+const char broker[] = "192.168.135.84";
 int port = 1883;
 const char topic[] = "RELAY";
 
