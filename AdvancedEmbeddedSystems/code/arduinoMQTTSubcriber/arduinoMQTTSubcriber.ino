@@ -76,6 +76,7 @@ void loop()
 
 void onMqttMessage(int messageSize)
 {
+  String topic = mqttClient.messageTopic();
   Serial.println("Received a message with topic '");
   Serial.print(mqttClient.messageTopic());
   Serial.print("', length ");
@@ -84,27 +85,31 @@ void onMqttMessage(int messageSize)
 
   while (mqttClient.available())
   {
-    char receivedCharR = (char)mqttClient.read();
-    Serial.print(receivedCharR);
+    char receivedChar = (char)mqttClient.read();
+    Serial.print(receivedChar);
 
-    if (receivedCharR == '1')
+    if (topic == topicR)
     {
-      digitalWrite(relay, HIGH);
-    }
-    else if (receivedCharR == '0')
-    {
-      digitalWrite(relay, LOW);
+      if (receivedChar == '1')
+      {
+        digitalWrite(relay, HIGH);
+      }
+      else if (receivedChar == '0')
+      {
+        digitalWrite(relay, LOW);
+      }
     }
 
-    char receivedCharL = (char)mqttClient.read();
-
-    if (receivedCharL == '1')
+    else if (topic == topicL)
     {
-      digitalWrite(LED, HIGH);
-    }
-    else if (receivedCharL == '0')
-    {
-      digitalWrite(LED, LOW);
+      if (receivedChar == '1')
+      {
+        digitalWrite(LED, HIGH);
+      }
+      else if (receivedChar == '0')
+      {
+        digitalWrite(LED, LOW);
+      }
     }
   }
 
