@@ -15,7 +15,8 @@ MqttClient mqttClient(wifiClient);
 
 const char broker[] = "192.168.135.84";
 int port = 1883;
-const char dhtTopic[] = "DHT11";
+const char dhtTopicTemperature[] = "DHT11Temp";
+const char dhtTopicHumidity[] = "DHT11Hum";
 const char lightTopic[] = "light";
 const char humiditySoilTopic[] = "Soil";
 
@@ -81,13 +82,16 @@ void loop()
     soilHumidity = analogRead(HUMIDITY_SOIL_PIN);
 
     Serial.print("Sending message to topic: ");
-    Serial.println(dhtTopic);
+    Serial.println(dhtTopicTemperature);
     Serial.println(dhtSensor.temperature);
+    Serial.println(dhtTopicHumidity);
     Serial.println(dhtSensor.humidity);
 
-    mqttClient.beginMessage(dhtTopic);
+    mqttClient.beginMessage(dhtTopicHumidity);
     mqttClient.println((float)dhtSensor.humidity, 2);
+    mqttClient.endMessage();
 
+    mqttClient.beginMessage(dhtTopicTemperature);
     mqttClient.println((float)dhtSensor.temperature, 2);
     mqttClient.endMessage();
 
