@@ -4,8 +4,8 @@
 #include <dht11.h>
 
 #define DHT11PIN 13
-#define LIGHT_PIN 11
-#define HUMIDITY_SOIL_PIN 10
+#define LIGHT_PIN A4
+#define HUMIDITY_SOIL_PIN A5
 
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
@@ -13,18 +13,18 @@ char pass[] = SECRET_PASS;
 WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
-const char broker[] = "raspberrypi.local";
+const char broker[] = "192.168.135.84";
 int port = 1883;
 const char dhtTopic[] = "DHT11";
 const char lightTopic[] = "light";
 const char humiditySoilTopic[] = "Soil";
 
-int lightValue;
-int soilHumidity;
+float lightValue;
+float soilHumidity;
 
 dht11 dhtSensor;
 
-const long interval = 5000;
+const long interval =3000;
 unsigned long previousMillis = 0;
 
 void setup()
@@ -66,7 +66,6 @@ void setup()
 
 void loop()
 {
-  int check = dhtSensor.read(DHT11PIN);
 
   mqttClient.poll();
 
@@ -78,8 +77,8 @@ void loop()
 
     int check = dhtSensor.read(DHT11PIN);
 
-    lightValue = digitalRead(LIGHT_PIN);
-    soilHumidity = digitalRead(HUMIDITY_SOIL_PIN);
+    lightValue = analogRead(LIGHT_PIN);
+    soilHumidity = analogRead(HUMIDITY_SOIL_PIN);
 
     Serial.print("Sending message to topic: ");
     Serial.println(dhtTopic);
@@ -87,10 +86,8 @@ void loop()
     Serial.println(dhtSensor.humidity);
 
     mqttClient.beginMessage(dhtTopic);
-    mqttClient.print("Humidity (%): ");
     mqttClient.println((float)dhtSensor.humidity, 2);
 
-    mqttClient.print("Temperature (C): ");
     mqttClient.println((float)dhtSensor.temperature, 2);
     mqttClient.endMessage();
 
@@ -99,7 +96,6 @@ void loop()
     Serial.println(lightValue);
 
     mqttClient.beginMessage(lightTopic);
-    mqttClient.print("Light value: ");
     mqttClient.println(lightValue);
     mqttClient.endMessage();
 
@@ -108,7 +104,6 @@ void loop()
     Serial.println(soilHumidity);
 
     mqttClient.beginMessage(humiditySoilTopic);
-    mqttClient.print("Soil Humidity: ");
     mqttClient.println(soilHumidity);
     mqttClient.endMessage();
 
