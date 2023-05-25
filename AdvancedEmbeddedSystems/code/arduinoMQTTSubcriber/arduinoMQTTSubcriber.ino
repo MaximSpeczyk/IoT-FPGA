@@ -3,6 +3,7 @@
 #include "passwordMQTT.h"
 
 #define relay 12
+#define LED 11
 
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
@@ -12,13 +13,15 @@ MqttClient mqttClient(wifiClient);
 
 const char broker[] = "192.168.135.84";
 int port = 1883;
-const char topic[] = "RELAY";
+const char topicR[] = "RELAY";
+const char topicL[] = "lightON";
 
 char readCl;
 
 void setup()
 {
   pinMode(relay, OUTPUT);
+  pinMode(LED, OUTPUT);
 
   Serial.begin(9600);
   while (!Serial)
@@ -56,10 +59,12 @@ void setup()
   mqttClient.onMessage(onMqttMessage);
 
   Serial.print("Subscribing to topic: ");
-  Serial.println(topic);
+  Serial.println(topicR);
+  Serial.println(topicL);
   Serial.println();
 
-  mqttClient.subscribe(topic);
+  mqttClient.subscribe(topicR);
+  mqttClient.subscribe(topicL);
 
   Serial.println();
 }
@@ -79,16 +84,27 @@ void onMqttMessage(int messageSize)
 
   while (mqttClient.available())
   {
-    char receivedChar = (char)mqttClient.read();
-    Serial.print(receivedChar);
+    char receivedCharR = (char)mqttClient.read();
+    Serial.print(receivedCharR);
 
-    if (receivedChar == '1')
+    if (receivedCharR == '1')
     {
       digitalWrite(relay, HIGH);
     }
-    else if (receivedChar == '0')
+    else if (receivedCharR == '0')
     {
       digitalWrite(relay, LOW);
+    }
+
+    char receivedCharL = (char)mqttClient.read();
+
+    if (receivedCharL == '1')
+    {
+      digitalWrite(LED, HIGH);
+    }
+    else if (receivedCharL == '0')
+    {
+      digitalWrite(LED, LOW);
     }
   }
 
