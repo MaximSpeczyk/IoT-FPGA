@@ -3,6 +3,7 @@
 #include "passwordMQTT.h"
 
 #define relay 12
+#define LED 11
 
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
@@ -10,15 +11,17 @@ char pass[] = SECRET_PASS;
 WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
-const char broker[] = "192.168.0.105";
+const char broker[] = "192.168.135.84";
 int port = 1883;
-const char topic[] = "RELAY";
+const char topicR[] = "RELAY";
+const char topicL[] = "lightON";
 
 char readCl;
 
 void setup()
 {
   pinMode(relay, OUTPUT);
+  pinMode(LED, OUTPUT);
 
   Serial.begin(9600);
   while (!Serial)
@@ -56,10 +59,12 @@ void setup()
   mqttClient.onMessage(onMqttMessage);
 
   Serial.print("Subscribing to topic: ");
-  Serial.println(topic);
+  Serial.println(topicR);
+  Serial.println(topicL);
   Serial.println();
 
-  mqttClient.subscribe(topic);
+  mqttClient.subscribe(topicR);
+  mqttClient.subscribe(topicL);
 
   Serial.println();
 }
@@ -71,6 +76,7 @@ void loop()
 
 void onMqttMessage(int messageSize)
 {
+  String topic = mqttClient.messageTopic();
   Serial.println("Received a message with topic '");
   Serial.print(mqttClient.messageTopic());
   Serial.print("', length ");
@@ -82,13 +88,28 @@ void onMqttMessage(int messageSize)
     char receivedChar = (char)mqttClient.read();
     Serial.print(receivedChar);
 
-    if (receivedChar == '1')
+    if (topic == topicR)
     {
-      digitalWrite(relay, HIGH);
+      if (receivedChar == '1')
+      {
+        digitalWrite(relay, HIGH);
+      }
+      else if (receivedChar == '0')
+      {
+        digitalWrite(relay, LOW);
+      }
     }
-    else if (receivedChar == '0')
+
+    else if (topic == topicL)
     {
-      digitalWrite(relay, LOW);
+      if (receivedChar == '1')
+      {
+        digitalWrite(LED, HIGH);
+      }
+      else if (receivedChar == '0')
+      {
+        digitalWrite(LED, LOW);
+      }
     }
   }
 
