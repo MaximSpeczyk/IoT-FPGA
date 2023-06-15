@@ -11,7 +11,7 @@ char pass[] = SECRET_PASS;
 WiFiClient wifiClient;
 MqttClient mqttClient(wifiClient);
 
-const char broker[] = "192.168.135.84";
+const char broker[] = "192.168.122.84";
 int port = 1883;
 const char topicR[] = "RELAY";
 const char topicL[] = "lightON";
