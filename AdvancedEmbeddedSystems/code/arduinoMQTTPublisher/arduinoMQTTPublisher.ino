@@ -113,7 +113,7 @@ void loop()
     Serial.println(lightTopic);
     Serial.println(lightValue);
 
-    //publishing the data from the photoresistor ti the topic "lightTopic"
+    //publishing the data from the photoresistor to the topic "lightTopic"
     mqttClient.beginMessage(lightTopic);
     mqttClient.println(lightValue);
     mqttClient.endMessage();
@@ -123,7 +123,7 @@ void loop()
     Serial.println(humiditySoilTopic);
     Serial.println(soilHumidity);
 
-    //publishing the data from the
+    //publishing the data from the soil sensor to the topic "humiditySoilTopic"
     mqttClient.beginMessage(humiditySoilTopic);
     mqttClient.println(soilHumidity);
     mqttClient.endMessage();
