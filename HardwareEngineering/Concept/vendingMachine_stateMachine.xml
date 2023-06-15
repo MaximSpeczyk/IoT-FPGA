@@ -1,0 +1,39 @@
+<mxfile host="app.diagrams.net" modified="2023-06-15T20:00:31.323Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.43" etag="lHHvaDcLaBzK18__3TzB" version="21.3.8" type="device">
+  <diagram name="Seite-1" id="4LxMpI5iQ3Z-9P9SAu0Y">
+    <mxGraphModel dx="737" dy="1138" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-5" value="amount = [1,2,5]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="w2_AhUj1ytGsRWYM5Ozz-1" target="w2_AhUj1ytGsRWYM5Ozz-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-1" value="Idle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-6" value="cost =&amp;nbsp; 2&lt;br&gt;totalMoney &amp;gt;= 2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="w2_AhUj1ytGsRWYM5Ozz-2" target="w2_AhUj1ytGsRWYM5Ozz-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-2" value="Accepting" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-7" value="return = totalMoney - 2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="w2_AhUj1ytGsRWYM5Ozz-3" target="w2_AhUj1ytGsRWYM5Ozz-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-3" value="Dispensing" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="w2_AhUj1ytGsRWYM5Ozz-4" target="w2_AhUj1ytGsRWYM5Ozz-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="560" />
+              <mxPoint x="220" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="w2_AhUj1ytGsRWYM5Ozz-4" value="Refund" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
