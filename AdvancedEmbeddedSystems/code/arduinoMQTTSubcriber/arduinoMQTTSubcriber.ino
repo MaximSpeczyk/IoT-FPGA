@@ -121,7 +121,7 @@ void onMqttMessage(int messageSize)
       {
         digitalWrite(LED, HIGH);
       }
-      //turn off the relay
+      //turn off the led
       else if (receivedChar == '0')
       {
         digitalWrite(LED, LOW);
