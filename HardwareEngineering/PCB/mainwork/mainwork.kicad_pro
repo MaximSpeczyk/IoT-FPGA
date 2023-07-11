@@ -380,7 +380,7 @@
       "pin_to_pin": "warning",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
-      "simulation_model_issue": "error",
+      "simulation_model_issue": "ignore",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -392,7 +392,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "VendingMachine.kicad_pro",
+    "filename": "mainwork.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -469,20 +469,20 @@
   },
   "sheets": [
     [
-      "67bc9701-77cb-4a6a-b4ba-9aea764b8956",
+      "357b6a3b-af35-4e38-8ca5-9b42557bf283",
       ""
     ],
     [
-      "3a4268a9-fd1d-46ff-b2a2-0f4bab135d5f",
-      "power Supply"
+      "c41277d9-6b58-4a34-9027-b8a71bae57b0",
+      "Power Supply"
     ],
     [
-      "2e33cae6-e59d-42f1-9e79-64a7d3641da7",
-      "vendingUtilities"
+      "6309d582-1ed8-4226-b8ac-40a4b14771bb",
+      "Utilities"
     ],
     [
-      "93cf89a3-39a5-427a-ab36-38440813d9df",
-      "vendingMachine"
+      "fb82477b-5312-4fec-8f45-15ceb41d0e8d",
+      "Vending Machine"
     ]
   ],
   "text_variables": {}
