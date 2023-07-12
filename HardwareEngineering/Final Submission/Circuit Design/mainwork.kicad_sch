@@ -1,0 +1,69 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 357b6a3b-af35-4e38-8ca5-9b42557bf283)
+
+  (paper "A4")
+
+  (title_block
+    (title "Vending Machine project")
+  )
+
+  (lib_symbols
+  )
+
+
+  (sheet (at 175.26 30.48) (size 101.6 44.45) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid 6309d582-1ed8-4226-b8ac-40a4b14771bb)
+    (property "Sheetname" "Utilities" (at 175.26 29.7684 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "Utilities.kicad_sch" (at 175.26 75.5146 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "VendingMachine"
+        (path "/357b6a3b-af35-4e38-8ca5-9b42557bf283" (page "3"))
+      )
+    )
+  )
+
+  (sheet (at 34.29 27.94) (size 104.14 43.18) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid c41277d9-6b58-4a34-9027-b8a71bae57b0)
+    (property "Sheetname" "Power Supply" (at 34.29 27.2284 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "PowerSupply.kicad_sch" (at 34.29 71.7046 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "VendingMachine"
+        (path "/357b6a3b-af35-4e38-8ca5-9b42557bf283" (page "2"))
+      )
+    )
+  )
+
+  (sheet (at 35.56 104.14) (size 106.68 53.34) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid fb82477b-5312-4fec-8f45-15ceb41d0e8d)
+    (property "Sheetname" "Vending Machine" (at 35.56 103.4284 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "VendingMachine_Sch.kicad_sch" (at 35.56 158.0646 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "VendingMachine"
+        (path "/357b6a3b-af35-4e38-8ca5-9b42557bf283" (page "4"))
+      )
+    )
+  )
+
+  (sheet_instances
+    (path "/" (page "1"))
+  )
+)

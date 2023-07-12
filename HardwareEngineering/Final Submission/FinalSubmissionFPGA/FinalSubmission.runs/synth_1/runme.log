@@ -1,0 +1,301 @@
+
+*** Running vivado
+    with args -log VM.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source VM.tcl
+
+
+ECHO is off.
+ECHO is off.
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source VM.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:12 . Memory (MB): peak = 440.434 ; gain = 163.449
+Command: read_checkpoint -auto_incremental -incremental C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/utils_1/imports/synth_1/VM.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/utils_1/imports/synth_1/VM.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top VM -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17780
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 1276.250 ; gain = 411.957
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'VM' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:18]
+INFO: [Synth 8-226] default block is never used [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:46]
+WARNING: [Synth 8-614] signal 'total' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:42]
+WARNING: [Synth 8-614] signal 'price' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:42]
+WARNING: [Synth 8-614] signal 'product' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:42]
+WARNING: [Synth 8-614] signal 'pickItem' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:159]
+WARNING: [Synth 8-614] signal 'coin_in' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:159]
+WARNING: [Synth 8-614] signal 'total' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:159]
+WARNING: [Synth 8-614] signal 'price' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:159]
+WARNING: [Synth 8-614] signal 'product' is read in the process but is not in the sensitivity list [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:159]
+INFO: [Synth 8-256] done synthesizing module 'VM' (0#1) [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:18]
+WARNING: [Synth 8-3917] design VM has port idle_state driven by constant 1
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:18 . Memory (MB): peak = 1368.684 ; gain = 504.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:21 . Memory (MB): peak = 1368.684 ; gain = 504.391
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:21 . Memory (MB): peak = 1368.684 ; gain = 504.391
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1368.684 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/constrs_1/new/constraintFile.xdc]
+Finished Parsing XDC File [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/constrs_1/new/constraintFile.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/constrs_1/new/constraintFile.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/VM_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/VM_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1418.270 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1418.270 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:35 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:35 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:35 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'VM'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                             0001 |                               00
+                selected |                             0010 |                               01
+                  review |                             0100 |                               10
+                  output |                             1000 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'VM'
+WARNING: [Synth 8-327] inferring latch for variable 'price_reg' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:51]
+WARNING: [Synth 8-327] inferring latch for variable 'total_reg' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:75]
+WARNING: [Synth 8-327] inferring latch for variable 'refund_reg' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:100]
+WARNING: [Synth 8-327] inferring latch for variable 'product_reg' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:50]
+WARNING: [Synth 8-327] inferring latch for variable 'selectedItem_reg' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:52]
+WARNING: [Synth 8-327] inferring latch for variable 'dispense_reg' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:116]
+WARNING: [Synth 8-327] inferring latch for variable 'refundOutLed_reg' [C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.srcs/sources_1/new/VendingMachineCode1.vhd:101]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:35 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input    8 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   5 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 2     
+	   4 Input    5 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	  15 Input    4 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 2     
+	   4 Input    3 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design VM has port Anode[6] driven by constant 1
+WARNING: [Synth 8-3917] design VM has port Anode[4] driven by constant 1
+WARNING: [Synth 8-3917] design VM has port idle_state driven by constant 1
+WARNING: [Synth 8-3332] Sequential element (total_reg[31]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[30]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[29]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[28]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[27]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[26]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[25]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[24]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[23]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[22]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[21]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[20]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[19]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[18]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[17]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[16]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[15]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[14]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[13]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[12]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[11]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[10]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[9]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[8]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[7]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[6]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[5]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (refund_reg[4]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (selectedItem_reg[3]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (dispense_reg[3]) is unused and will be removed from module VM.
+WARNING: [Synth 8-3332] Sequential element (price_reg[31]) is unused and will be removed from module VM.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:39 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:49 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:49 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:49 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    14|
+|3     |LUT1   |     1|
+|4     |LUT2   |    11|
+|5     |LUT3   |    16|
+|6     |LUT4   |    17|
+|7     |LUT5   |     4|
+|8     |LUT6   |    15|
+|9     |FDCE   |    23|
+|10    |FDPE   |     1|
+|11    |LD     |    17|
+|12    |IBUF   |    10|
+|13    |OBUF   |    29|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 42 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:54 . Memory (MB): peak = 1418.270 ; gain = 504.391
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:57 . Memory (MB): peak = 1418.270 ; gain = 553.977
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1418.270 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 31 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1418.270 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 17 instances were transformed.
+  LD => LDCE: 17 instances
+
+Synth Design complete | Checksum: 290cad76
+INFO: [Common 17-83] Releasing license: Synthesis
+26 Infos, 51 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:01:08 . Memory (MB): peak = 1418.270 ; gain = 952.977
+INFO: [Common 17-1381] The checkpoint 'C:/Users/49152/Documents/FPGA/VendingMachineLastTest/VendingMachineLastTest.runs/synth_1/VM.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file VM_utilization_synth.rpt -pb VM_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Jul 11 23:06:32 2023...
